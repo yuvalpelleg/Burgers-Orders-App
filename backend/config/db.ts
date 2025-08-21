@@ -4,7 +4,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const MONGO_URI =
-  process.env.MONGO_URI || "mongodb://localhost:27017/burgerApp";
+  process.env.MONGO_URI ||
+  "mongodb+srv://yuvalplg:yuvalplg680@cluster0.apfabhm.mongodb.net/";
 
 const connectDB = async () => {
   try {

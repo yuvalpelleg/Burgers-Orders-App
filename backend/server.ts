@@ -51,7 +51,7 @@ app.use(express.json()); // parse JSON body
 
 // Connect to MongoDB
 const mongoURI =
-  "mongodb+srv://yuvalplg:<yuvalplg680>@cluster0.apfabhm.mongodb.net/"; // or from .env
+  "mongodb+srv://yuvalplg:yuvalplg680@cluster0.apfabhm.mongodb.net/"; // or from .env
 mongoose
   .connect(mongoURI)
   .then(() => console.log("MongoDB connected successfully"))
