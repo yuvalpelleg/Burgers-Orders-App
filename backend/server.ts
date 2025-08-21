@@ -35,8 +35,12 @@
 // });
 
 import express, { Request, Response } from "express";
-import mongoose from "mongoose";
+import dotenv from "dotenv";
 import cors from "cors";
+import connectDB from "./config/db";
+
+// Load environment variables
+dotenv.config();
 
 // Import your routes
 import authRoutes from "./routes/authRoutes";
@@ -45,17 +49,12 @@ import authRoutes from "./routes/authRoutes";
 
 const app = express();
 
+// Connect to MongoDB using the db config
+connectDB();
+
 // Middleware
 app.use(cors()); // allow cross-origin requests
 app.use(express.json()); // parse JSON body
-
-// Connect to MongoDB
-const mongoURI =
-  "mongodb+srv://yuvalplg:yuvalplg680@cluster0.apfabhm.mongodb.net/"; // or from .env
-mongoose
-  .connect(mongoURI)
-  .then(() => console.log("MongoDB connected successfully"))
-  .catch((err) => console.error("MongoDB connection error:", err));
 
 // Routes
 app.use("/auth", authRoutes);
