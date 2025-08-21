@@ -50,7 +50,8 @@ app.use(cors()); // allow cross-origin requests
 app.use(express.json()); // parse JSON body
 
 // Connect to MongoDB
-const mongoURI = "mongodb://127.0.0.1:27017/burgerApp"; // or from .env
+const mongoURI =
+  "mongodb+srv://yuvalplg:<yuvalplg680>@cluster0.apfabhm.mongodb.net/"; // or from .env
 mongoose
   .connect(mongoURI)
   .then(() => console.log("MongoDB connected successfully"))
