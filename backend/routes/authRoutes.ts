@@ -11,3 +11,5 @@ router.post("/login");
 //router.use(authenticate); to protect all these routes
 
 router.get("/profile");
+
+export default router;
