@@ -1,4 +1,6 @@
 import { Request, Response } from "express";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 import { User } from "../models/User";
 import { z } from "zod";
 
@@ -20,6 +22,7 @@ const registerSchema = z.object({
       "Password must contain at least one lowercase letter, one uppercase letter, and one number"
     ),
   role: z.enum(["user", "admin"]).default("user"),
+  
   phone: z
     .string()
     .regex(/^\+?[\d\s-()]+$/, "Please provide a valid phone number")
@@ -36,3 +39,9 @@ const registerSchema = z.object({
     apartmentNumber: z.number("Apartment number must be a number").optional(),
   }),
 });
+
+export const register = async (req: Request, res: Response) => {
+  try {
+    
+  }
+};
