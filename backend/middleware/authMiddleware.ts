@@ -23,9 +23,6 @@ const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
     }
     const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
 
-    // שמירת ה-id של המשתמש בתוך request
-
-    // ממשיכים לראוט הבא
     next();
   } catch (error) {
     return res.status(401).json({ message: "טוקן לא תקין" });
