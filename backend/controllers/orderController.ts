@@ -3,7 +3,6 @@ import { Order } from "../models/Order";
 
 export const createOrder = async (req: Request, res: Response) => {
   try {
-    // new Order(req.body) → save()
     const order = new Order(req.body);
     await order.save();
     res.status(201).json(order);
