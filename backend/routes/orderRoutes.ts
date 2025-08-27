@@ -1,11 +1,11 @@
 import { Router } from "express";
 import { createOrder, getOrders } from "../controllers/orderController.js";
-import authMiddleware from "../middleware/authMiddleware.js";
+import { authenticate } from "../middleware/authMiddleware.js";
 
 const router = Router();
 
-router.post("/", authMiddleware, createOrder);
+router.post("/", authenticate, createOrder);
 
-router.get("/", authMiddleware, getOrders);
+router.get("/", authenticate, getOrders);
 
 export default router;

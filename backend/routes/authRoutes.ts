@@ -1,19 +1,18 @@
 import express from "express";
-import { register } from "../controllers/authController";
-
-const express = require("express");
-const { register } = require("../controllers/authController");
+import {
+  register,
+  login,
+  getProfile,
+  logout,
+} from "../controllers/authController";
+import { authenticate } from "../middleware/authMiddleware";
 
 const router = express.Router();
 
-// Public routes
 router.post("/register", register);
-// router.post("/login");
+router.post("/login", login);
+router.post("/logout", logout);
 
-//Private Routes
-
-//router.use(authenticate); to protect all these routes
-
-// router.get("/profile");
+router.get("/profile", authenticate, getProfile);
 
 export default router;
